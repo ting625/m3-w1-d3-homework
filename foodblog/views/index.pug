@@ -14,8 +14,8 @@ block content
         span.date {{ post.date }}
         span.reply {{ post.reply }}
         p {{ post.message }}
-
-        div#w-auto.m-0(v-if="post.thisBox")
+        
+        div#info_box.w-auto.m-0(v-for="post in posts" v-if="post.thisBox")
           p.closeBtn.closeBtnP(@click="post.thisBox = false") ×
           div#info_title {{ post.name }}
           div#info_foodie Foodie Level: {{ post.foodielevel }}
