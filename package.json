@@ -1,0 +1,15 @@
+{
+  "name": "foodblog",
+  "version": "1.0.0",
+  "main": "app.js",
+  "description": "Express app homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruo-ting Huang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
