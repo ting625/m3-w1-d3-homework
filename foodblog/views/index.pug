@@ -7,23 +7,18 @@ block content
     blogtitle
   section#blogposts.w-auto.p-0.m-0
     ul
-      each post in posts
-        li#posts
-          span.profile
-            img(src=post.profilepic @click="authorinfo(posts, post)")
-          span.author #{post.name} —
-          span.date #{post.date}
-          span.reply #{post.reply}
-          p #{post.message}
-        if post.thisBox
-          #info_box.w-auto.m-0
-            p.closeBtn.closeBtnP(@click="$emit('close', post.thisBox = false)") &#10006;
-            #info_title #{post.name}
-            #info_foodie
-              span Foodie Level: #{post.foodielevel}
-            #info_bio
-              span Bio:
-              br
-              | #{post.bio}
-            button.closeBtn.closeBtnB(@click="$emit('close', post.thisBox = false)") Close
-            p#close_info
+      li#posts(v-for="post in posts" :key="post.name")
+        span.profile
+          img(:src="post.profilepic", @click="authorinfo(posts, post)")
+        span.author {{ post.name }} —
+        span.date {{ post.date }}
+        span.reply {{ post.reply }}
+        p {{ post.message }}
+
+        div#w-auto.m-0(v-if="post.thisBox")
+          p.closeBtn.closeBtnP(@click="post.thisBox = false") ×
+          div#info_title {{ post.name }}
+          div#info_foodie Foodie Level: {{ post.foodielevel }}
+          div#info_bio Bio: {{ post.bio }}
+          button.closeBtn.closeBtnB(@click="post.thisBox = false") Close
+          p#close_info
